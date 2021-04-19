@@ -2,7 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const path = require('path')
-const app = express()
+const app = express();
+const PORT = process.env.PORT || 3000;
 require('dotenv').config();
 const { auth,requiresAuth } = require('express-openid-connect');
 const route = require('./routes');
@@ -43,4 +44,4 @@ app.use(
 
 route(app);
 
-app.listen(3000)
+app.listen(PORT)
