@@ -25,17 +25,11 @@ router.get('/login',(req, res) =>{
 router.get('/profile',requiresAuth(),(req, res) =>{
     res.render('profile')
 })
-router.get('/test',requiresAuth(),(req, res) =>{
-    res.render('test')
-})
-router.get('/list',requiresAuth(),(req, res) =>{
-    res.render('user_list')
-})
 
 router.get('/create-project',requiresAuth(),(req, res) =>{
     res.render('create-project')
 })
-router.get('/show-project',requiresAuth(),(req, res) =>{
+router.get('/show-project',(req, res) =>{
     res.render('show-project')
 })
 
