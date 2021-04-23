@@ -1,15 +1,18 @@
 const express = require('express')
 const Article = require('./../models/article')
+const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 const router = express.Router()
+
 
 router.get('/', async (req, res) => {
   const articles = await Article.find().sort({ createdAt: 'desc' })
-  // res.render('articles/index', { articles: articles })
-  res.render('index-project', { articles: articles })
+  res.render('articles/index', { articles: articles })
 })
+
+
 router.get('/new', (req, res) => {
-   res.render('articles/new', { article: new Article() })
-  // res.render('new-project', { article: new Article() })
+  res.render('articles/new', { article: new Article() })
 })
 
 router.get('/edit/:id', async (req, res) => {
@@ -17,11 +20,10 @@ router.get('/edit/:id', async (req, res) => {
   res.render('articles/edit', { article: article })
 })
 
-router.get('/:slug', (req, res) => {
-  // const article = await Article.findOne({ slug: req.params.slug })
-  // if (article == null) res.redirect('/')
-  // res.render('articles/show', { article: article })
-  res.render('show-project', { article: article })
+router.get('/:slug', async (req, res) => {
+  const article = await Article.findOne({ slug: req.params.slug })
+  if (article == null) res.redirect('/')
+  res.render('articles/show', { article: article })
 })
 
 router.post('/', async (req, res, next) => {

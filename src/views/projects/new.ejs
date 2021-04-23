@@ -37,27 +37,12 @@
     </div>
   </header>
   
-    <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <% articles.forEach(article => { %>
-        <div class="post-preview">
-          <!-- <a href="articles/<%= article.slug %>"> -->
-          <a href="articles/<%= article.slug %>">
-            <h2 class="post-title">
-              <%= article.title %>
-            </h2>
-            <h3 class="post-subtitle"><%= article.description %></h3>
-          </a>
-          <p class="post-meta">
-            Posted by
-            <a href="#">Admin</a>
-            on  <%= article.createdAt.toLocaleDateString() %>
-          </p>
-        </div>
-        <% }) %>
-      </div>
-    </div>
+  <div class="container">
+    <h1 class="mb-4">New project</h1>
+
+    <form action="/projects" method="POST">
+      <%- include('_form_fields') %>
+    </form>
   </div>
   
   </body>

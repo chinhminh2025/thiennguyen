@@ -25,12 +25,8 @@ router.get('/login',(req, res) =>{
 router.get('/profile',requiresAuth(),(req, res) =>{
     res.render('profile')
 })
-
-router.get('/create-project',requiresAuth(),(req, res) =>{
-    res.render('create-project')
-})
-router.get('/show-project',(req, res) =>{
-    res.render('show-project')
+router.get('/dashboard',(req, res) =>{
+    res.render('user-list')
 })
 
 module.exports = router;

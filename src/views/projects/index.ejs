@@ -23,7 +23,7 @@
 <body>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('assets/img/phuocduc.jpg')">
+  <!-- <header class="masthead" style="background-image: url('assets/img/phuocduc.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -35,24 +35,27 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
+
+  <div style="padding-top: 300px;">
+     <h2>Tất cả dự án</h2>
   
     <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <% articles.forEach(article => { %>
+        <% projects.forEach(project => { %>
         <div class="post-preview">
-          <!-- <a href="articles/<%= article.slug %>"> -->
-          <a href="articles/<%= article.slug %>">
+          <!-- <a href="projects/<%= project.slug %>"> -->
+          <a href="projects/<%= project.slug %>">
             <h2 class="post-title">
-              <%= article.title %>
+              <%= project.title %>
             </h2>
-            <h3 class="post-subtitle"><%= article.description %></h3>
+            <h3 class="post-subtitle"><%= project.description %></h3>
           </a>
           <p class="post-meta">
             Posted by
             <a href="#">Admin</a>
-            on  <%= article.createdAt.toLocaleDateString() %>
+            on  <%= project.createdAt.toLocaleDateString() %>
           </p>
         </div>
         <% }) %>
@@ -60,6 +63,9 @@
     </div>
   </div>
   
+  </div>
+
+ 
   </body>
 
 </html>

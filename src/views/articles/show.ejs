@@ -1,4 +1,13 @@
-<!-- <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+</head>
+<body>
   <div class="container">
     <h1 class="mb-1"><%= article.title %></h1>
     <div class="text-muted mb-2">
@@ -6,37 +15,13 @@
     </div>
     <a href="/" class="btn btn-secondary">All Articles</a>
     <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+    <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
 
     <div>
       <%- article.sanitizedHtml %>
     </div>
   </div>
-</body> -->
-
-
-<header class="masthead" style="background-image: url('img/post-bg.jpg')">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-heading">
-          <h1><%= article.title %></h1>       
-          <span class="meta">Posted by
-            <a href="#">Admin</a>
-            on  <%= article.createdAt.toLocaleDateString() %></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Post Content -->
-<article>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <%- article.sanitizedHtml %>
-      </div>
-    </div>
-  </div>
-</article>
+</body>
+</html>
